@@ -1758,8 +1758,6 @@ function! vimwiki#base#goto_parent_header()
   let parent_header = s:get_another_header(headers, current_header_index, -1, '<')
   if parent_header >= 0
     call cursor(headers[parent_header][0], 1)
-  else
-    echo 'Vimwiki: no parent header found'
   endif
 endfunction
 
@@ -1771,8 +1769,6 @@ function! vimwiki#base#goto_next_header()
     call cursor(headers[current_header_index + 1][0], 1)
   elseif current_header_index < 0 && !empty(headers)  " we're above the first header
     call cursor(headers[0][0], 1)
-  else
-    echo 'Vimwiki: no next header found'
   endif
 endfunction
 
@@ -1786,8 +1782,6 @@ function! vimwiki#base#goto_prev_header()
   endif
   if current_header_index >= 0
     call cursor(headers[current_header_index][0], 1)
-  else
-    echo 'Vimwiki: no previous header found'
   endif
 endfunction
 
@@ -1800,8 +1794,6 @@ function! vimwiki#base#goto_sibling(direction)
   if next_potential_sibling >= 0 && headers[next_potential_sibling][1] ==
         \ headers[current_header_index][1]
     call cursor(headers[next_potential_sibling][0], 1)
-  else
-    echo 'Vimwiki: no sibling header found'
   endif
 endfunction
 
